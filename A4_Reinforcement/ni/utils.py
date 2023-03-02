@@ -22,16 +22,18 @@ def getvalue(Q):
     in order to do this, and looping will be much slower than using matrix
     operations. It's possible to implement this in one line of code.
     """
-    # Q(s(Y,X),a)
-    Y,X,a = Q.shape
-    P = np.argmax(Q, axis = 2)
-    V = []
+    # # Q(s(Y,X),a)
+    # Y,X,a = Q.shape
+    # P = np.argmax(Q, axis = 2)
+    # V = []
     
-    for x in range(X):
-        for y in range(Y):
-            V.append(Q[y,x,P[y,x]])
+    # for x in range(X):
+    #     for y in range(Y):
+    #         V.append(Q[y,x,P[y,x]])
     
-    V = np.array(V).reshape((Y,X))
+    # V = np.array(V).reshape((Y,X))
+
+    V = np.max(Q, axis = 2)
 
     return V
 
